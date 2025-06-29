@@ -7,8 +7,10 @@ export const SignInUser = async (data) => {
   return res.data.user
 }
 
-export const RegisterUser = async (data) => {
-  const res = await Client.post('/auth/register', data)
+export const RegisterUser = async (formData) => {
+  const res = await Client.post('/auth/register', formData, {
+    headers: { 'Content-Type': 'multipart/form-data' }
+  })
   return res.data
 }
 
