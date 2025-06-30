@@ -6,8 +6,14 @@ Client.interceptors.request.use(
   async (config) => {
     const token = localStorage.getItem('token')
     if (token) {
-      config.headers['authorization'] = `Bearer ${token}`
+      config.headers['Authorization'] = `Bearer ${token}`
     }
+
+    // 🧠 Ensure body is treated as JSON
+    if (!config.headers['Content-Type']) {
+      config.headers['Content-Type'] = 'application/json'
+    }
+
     return config
   },
   async (error) => {

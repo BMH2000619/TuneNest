@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom'
+import api from '../services/api'
 
 const Nav = ({ user, setUser }) => {
   const handleSignOut = () => {
     setUser(null)
+    localStorage.removeItem('token')
+    delete window.localStorage.token
+    delete api.defaults.headers.common['Authorization']
   }
 
   return (
@@ -12,6 +16,9 @@ const Nav = ({ user, setUser }) => {
       </div>
       <div>
         <Link to="/about">About</Link>
+      </div>
+      <div>
+        <Link to="/songs">Songs</Link>
       </div>
       {!user ? (
         <>

@@ -32,20 +32,18 @@ export const createSong = async (songData) => {
 // Update a Song
 export const updateSong = async (id, songData) => {
   try {
-    const res = await Client.put(`/'songs/${id}`, songData)
+    const res = await Client.put(`/songs/${id}`, songData) // FIXED
     return res.data
   } catch (error) {
     throw error
   }
 }
 
-// Delete a song
 export const deleteSong = async (id) => {
   try {
-    const res = await Client.delete(`/'songs/${id}`)
+    const res = await Client.delete(`/songs/${id}`) // FIXED
     return res.data
   } catch (error) {
     throw error
   }
 }
-

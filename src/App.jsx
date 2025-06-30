@@ -8,6 +8,7 @@ import Register from './pages/Register'
 import SignIn from './pages/SignIn'
 import Client from './services/api'
 import { CheckSession } from './services/Auth'
+import Songs from './pages/Songs'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -18,7 +19,11 @@ const App = () => {
       Client.defaults.headers.common['Authorization'] = `Bearer ${token}`
       CheckSession()
         .then((data) => setUser(data.user))
-        .catch(() => setUser(null))
+        .catch(() => {
+          setUser(null)
+          localStorage.removeItem('token')
+          delete Client.defaults.headers.common['Authorization']
+        })
     }
   }, [])
 
@@ -30,6 +35,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/signin" element={<SignIn setUser={setUser} />} />
+        <Route path="/songs" element={<Songs user={user} />} />
       </Routes>
     </>
   )

@@ -193,3 +193,51 @@ a:hover {
     max-width: 120px;
   }
 }
+
+.songs-page {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.songs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.song-item {
+  cursor: pointer;
+  background: #232526;
+  margin: 8px 0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  transition: background 0.2s, border 0.2s;
+  color: #fff;
+}
+
+.song-item.selected {
+  background: #1db954;
+  color: #181818;
+  border: 1.5px solid #1ed760;
+}
+
+.song-item:hover {
+  background: #282828;
+  border: 1.5px solid #1db954;
+}
+
+.added-by {
+  font-size: 0.95em;
+  color: #b3b3b3;
+  margin-top: 4px;
+}
+
+.selected-song {
+  margin-top: 1.5rem;
+  background: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #1db954;
+  color: #1db954;
+}
