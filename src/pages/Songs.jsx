@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { getAllSongs } from '../services/ShowSongs'
-import AddSong from '../components/AddSong' // <-- Import AddSong
+import AddSong from '../components/AddSong'
+import { useNavigate } from 'react-router-dom' // Add this
 
 const Songs = ({ user }) => {
   const [songs, setSongs] = useState([])
-  const [selectedSongId, setSelectedSongId] = useState(null)
+  const navigate = useNavigate() // Add this
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -17,10 +18,6 @@ const Songs = ({ user }) => {
     }
     fetchSongs()
   }, [])
-
-  const handleSelect = (id) => {
-    setSelectedSongId(id)
-  }
 
   // Refresh songs after adding a new one
   const handleSongAdded = () => {
@@ -35,21 +32,14 @@ const Songs = ({ user }) => {
         {songs.map((song) => (
           <li
             key={song._id}
-            onClick={() => handleSelect(song._id)}
-            className={`song-item${
-              selectedSongId === song._id ? ' selected' : ''
-            }`}
+            onClick={() => navigate(`/songs/${song._id}`)} // Change here
+            className="song-item"
           >
             <strong>{song.title}</strong> by {song.artist}
             <div className="added-by">Added by: {song.addedBy?.username}</div>
           </li>
         ))}
       </ul>
-      {selectedSongId && (
-        <div className="selected-song">
-          <h3>Selected Song ID: {selectedSongId}</h3>
-        </div>
-      )}
     </div>
   )
 }

@@ -14,6 +14,7 @@ export const getAllSongs = async () => {
 export const getSongById = async (id) => {
   try {
     const res = await Client.get(`/songs/${id}`)
+    return res.data
   } catch (error) {
     throw error
   }

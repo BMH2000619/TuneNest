@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { SignInUser } from '../services/Auth'
+import { SignInUser, CheckSession } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
 const SignIn = ({ setUser }) => {
@@ -14,9 +14,14 @@ const SignIn = ({ setUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await SignInUser(formValues)
+    await SignInUser(formValues)
+    // Immediately fetch session and normalize user
+    const session = await CheckSession()
+    const normalizedUser = session.user
+      ? { ...session.user, _id: session.user._id || session.user.id }
+      : null
     setFormValues(initialState)
-    setUser(payload)
+    setUser(normalizedUser)
     navigate('/')
   }
 
