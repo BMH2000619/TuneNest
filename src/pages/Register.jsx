@@ -44,7 +44,7 @@ const Register = () => {
 
   return (
     <div>
-      <img src="/images/register.png" alt="Register" />
+      <img src="https://i.imgur.com/clM1jkC.jpeg" alt="Register" />
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div>
           <label htmlFor="username">Username</label>

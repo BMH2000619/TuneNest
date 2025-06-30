@@ -3,11 +3,10 @@ import { SignInUser } from '../services/Auth'
 import { useNavigate } from 'react-router-dom'
 
 const SignIn = ({ setUser }) => {
-  let navigate = useNavigate()
-  // 'identifier' can be email or username
-  const initialState = { identifier: '', password: '' } 
+  const initialState = { email: '', password: '' }
 
   const [formValues, setFormValues] = useState(initialState)
+  const navigate = useNavigate()
 
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.id]: e.target.value })
@@ -18,21 +17,21 @@ const SignIn = ({ setUser }) => {
     const payload = await SignInUser(formValues)
     setFormValues(initialState)
     setUser(payload)
-    navigate('/feed')
+    navigate('/')
   }
 
   return (
     <div>
-      <img src="/images/signin.png" alt="Sign In" />
+      <img src="https://i.imgur.com/clM1jkC.jpeg" alt="Sign In" />
       <form className="col" onSubmit={handleSubmit}>
         <div className="input-wrapper">
-          <label htmlFor="identifier">Email or Username</label>
+          <label htmlFor="email">Email</label>
           <input
             onChange={handleChange}
-            id="identifier"
-            type="text"
-            placeholder="Email or Username"
-            value={formValues.identifier}
+            id="email"
+            type="email"
+            placeholder="Email"
+            value={formValues.email}
             required
             autoComplete="username"
           />
@@ -47,7 +46,7 @@ const SignIn = ({ setUser }) => {
             required
           />
         </div>
-        <button disabled={!formValues.identifier || !formValues.password}>
+        <button disabled={!formValues.email || !formValues.password}>
           Sign In
         </button>
       </form>
