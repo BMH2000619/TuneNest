@@ -10,6 +10,8 @@ import Client from './services/api'
 import { CheckSession } from './services/Auth'
 import Songs from './pages/Songs'
 import SongDetail from './pages/SongDetail'
+import AllPlaylists from './pages/AllPlaylists'
+import PlaylistDetail from './pages/PlaylistDetail'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -54,9 +56,14 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route path="/songs" element={<Songs user={user} />} />
+          <Route path="/playlists" element={<AllPlaylists user={user} />} />
           <Route
             path="/songs/:id"
             element={<SongDetail user={user} userLoading={userLoading} />}
+          />
+          <Route
+            path="/playlists/:id"
+            element={<PlaylistDetail user={user} />}
           />
         </Routes>
       )}

@@ -20,6 +20,9 @@ const Nav = ({ user, setUser }) => {
       <div>
         <Link to="/songs">Songs</Link>
       </div>
+      <div>
+        <Link to="/playlists">Playlists</Link>
+      </div>
       {!user ? (
         <>
           <div>

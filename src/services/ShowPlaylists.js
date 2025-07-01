@@ -3,7 +3,7 @@ import Client from './api'
 // Get all public playlists
 export const getAllPublicPlaylists = async () => {
   try {
-    const res = await Client.get('/playlist/public')
+    const res = await Client.get('/playlists')
     return res.data
   } catch (error) {
     throw error
@@ -13,7 +13,7 @@ export const getAllPublicPlaylists = async () => {
 // Get a single playlist by ID
 export const getplaylistById = async (id) => {
   try {
-    const res = await Client.get(`/playlist/${id}`)
+    const res = await Client.get(`/playlists/${id}`)
     return res.data
   } catch (error) {
     throw error
