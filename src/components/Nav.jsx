@@ -33,19 +33,24 @@ const Nav = ({ user, setUser }) => {
           </div>
         </>
       ) : (
-        <div>
-          <button
-            onClick={handleSignOut}
-            style={{
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              padding: 0
-            }}
-          >
-            Sign Out
-          </button>
-        </div>
+        <>
+          <div>
+            <Link to="/profile">Profile</Link>
+          </div>
+          <div>
+            <button
+              onClick={handleSignOut}
+              style={{
+                background: 'none',
+                border: 'none',
+                cursor: 'pointer',
+                padding: 0
+              }}
+            >
+              Sign Out
+            </button>
+          </div>
+        </>
       )}
     </nav>
   )

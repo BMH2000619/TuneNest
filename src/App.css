@@ -737,8 +737,172 @@ a:hover {
   margin-top: 0.5rem;
 }
 
-@media (max-width: 700px) {
-  .playlist-detail-container {
+/* --- Profile Page Styles --- */
+.profile-container {
+  max-width: 500px;
+  margin: 2.5rem auto;
+  background: rgba(34, 34, 34, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(29, 185, 84, 0.08);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  color: #fff;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.profile-info img {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #1db954;
+  box-shadow: 0 2px 12px rgba(29, 185, 84, 0.12);
+  background: #181818;
+}
+
+.profile-info > div,
+.profile-info strong {
+  color: #e0e0e0;
+  font-size: 1.08rem;
+  margin-bottom: 0.2em;
+}
+
+.profile-info strong {
+  color: #1db954;
+  font-weight: 600;
+}
+
+.profile-info button,
+.profile-info form button {
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(90deg, #1db954 60%, #1ed760 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(29, 185, 84, 0.08);
+  letter-spacing: 0.02em;
+}
+
+.profile-info button:hover,
+.profile-info form button:hover {
+  background: linear-gradient(90deg, #17a74a 60%, #1db954 100%);
+}
+
+.profile-info form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-info input[type='text'] {
+  width: 90%;
+  padding: 0.6rem 0.9rem;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #181818;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+.profile-info input[type='text']:focus {
+  border: 1.5px solid #1db954;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.15);
+}
+
+.profile-info input[type='file'] {
+  background: #222;
+  color: #ccc;
+  padding: 0.3rem 0.2rem;
+  border-radius: 8px;
+  border: 1px solid #444;
+  width: 90%;
+}
+
+.profile-info .edit-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.profile-playlists {
+  margin-top: 1.5rem;
+  background: #232526;
+  border-radius: 12px;
+  padding: 1.5rem 1.2rem;
+  box-shadow: 0 2px 12px rgba(29, 185, 84, 0.04);
+}
+
+.profile-playlists h3 {
+  color: #1db954;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.profile-playlists ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-playlists li {
+  margin-bottom: 0.7em;
+  padding: 0.7em 0.8em;
+  background: #181818;
+  border-radius: 8px;
+  transition: background 0.2s, border 0.2s;
+  border: 1px solid #333;
+}
+
+.profile-playlists li:hover {
+  background: #232526;
+  border: 1.5px solid #1db954;
+}
+
+.profile-playlists a {
+  color: #1db954;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.profile-playlists a:hover {
+  color: #1ed760;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .profile-container {
+    padding: 1.2rem 0.7rem;
+    max-width: 98vw;
+  }
+  .profile-info img {
+    width: 80px;
+    height: 80px;
+  }
+  .profile-playlists {
     padding: 1rem 0.5rem;
   }
 }

@@ -12,6 +12,7 @@ import Songs from './pages/Songs'
 import SongDetail from './pages/SongDetail'
 import AllPlaylists from './pages/AllPlaylists'
 import PlaylistDetail from './pages/PlaylistDetail'
+import Profile from './pages/Profile'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -64,6 +65,16 @@ const App = () => {
           <Route
             path="/playlists/:id"
             element={<PlaylistDetail user={user} />}
+          />
+          <Route
+            path="/profile"
+            element={
+              <Profile
+                user={user}
+                userLoading={userLoading}
+                setUser={setUser}
+              />
+            }
           />
         </Routes>
       )}
