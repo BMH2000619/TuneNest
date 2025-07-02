@@ -33,7 +33,7 @@ export const createSong = async (songData) => {
 // Update a Song
 export const updateSong = async (id, songData) => {
   try {
-    const res = await Client.put(`/songs/${id}`, songData) // FIXED
+    const res = await Client.put(`/songs/${id}`, songData)
     return res.data
   } catch (error) {
     throw error
@@ -42,7 +42,7 @@ export const updateSong = async (id, songData) => {
 
 export const deleteSong = async (id) => {
   try {
-    const res = await Client.delete(`/songs/${id}`) // FIXED
+    const res = await Client.delete(`/songs/${id}`)
     return res.data
   } catch (error) {
     throw error

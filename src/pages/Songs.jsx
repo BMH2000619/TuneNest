@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { getAllSongs } from '../services/ShowSongs'
 import AddSong from '../components/AddSong'
-import { useNavigate } from 'react-router-dom' // Add this
+import { useNavigate } from 'react-router-dom'
 
 const Songs = ({ user }) => {
   const [songs, setSongs] = useState([])
-  const navigate = useNavigate() // Add this
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchSongs = async () => {
@@ -32,7 +32,7 @@ const Songs = ({ user }) => {
         {songs.map((song) => (
           <li
             key={song._id}
-            onClick={() => navigate(`/songs/${song._id}`)} // Change here
+            onClick={() => navigate(`/songs/${song._id}`)}
             className="song-item"
           >
             <strong>{song.title}</strong> by {song.artist}

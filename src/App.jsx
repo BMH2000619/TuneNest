@@ -43,6 +43,14 @@ const App = () => {
 
   return (
     <>
+      <video
+        className="global-bg-video"
+        src="/TuneBackground.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
       <Nav user={user} setUser={setUser} />
       {userLoading ? (
         <div

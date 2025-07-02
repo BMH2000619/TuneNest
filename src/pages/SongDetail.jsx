@@ -54,7 +54,7 @@ const SongDetail = ({ user, userLoading }) => {
     e.preventDefault()
     try {
       await updateSong(id, form)
-      const updatedSong = await getSongById(id) // fetch with populated addedBy
+      const updatedSong = await getSongById(id)
       setSong(updatedSong)
       setEditMode(false)
     } catch (err) {

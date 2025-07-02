@@ -3,7 +3,6 @@ import { Link, useParams } from 'react-router-dom'
 import { getAllPublicPlaylists } from '../services/ShowPlaylists'
 
 const Profile = ({ user, userLoading, setUser }) => {
-  const { id } = useParams()
   const [editMode, setEditMode] = useState(false)
   const [form, setForm] = useState({ username: '', img: null })
   const [playlists, setPlaylists] = useState([])
