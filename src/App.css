@@ -906,3 +906,145 @@ a:hover {
     padding: 1rem 0.5rem;
   }
 }
+
+/* --- Playlist Comments Section --- */
+.playlist-comments-section {
+  margin-top: 2.5rem;
+  background: #232526;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(29, 185, 84, 0.06);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  max-width: 98%;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.playlist-comments-section h3 {
+  color: #1db954;
+  margin-bottom: 1.2rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.comment-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 1rem;
+}
+
+.comment-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.comment-profile-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #1db954;
+  background: #181818;
+  margin-top: 2px;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-username {
+  font-weight: 600;
+  color: #1db954;
+  margin-bottom: 2px;
+  font-size: 1.05em;
+}
+
+.comment-text {
+  margin: 4px 0 6px 0;
+  color: #e0e0e0;
+  font-size: 1.07em;
+  line-height: 1.5;
+}
+
+.comment-date {
+  font-size: 0.93em;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.comment-actions {
+  margin-top: 4px;
+  display: flex;
+  gap: 0.7em;
+}
+
+.comment-actions button {
+  background: #181818;
+  color: #1db954;
+  border: 1px solid #1db954;
+  border-radius: 6px;
+  padding: 0.3em 0.9em;
+  font-size: 0.98em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+}
+
+.comment-actions button:hover {
+  background: #1db954;
+  color: #181818;
+}
+
+.add-comment-form {
+  margin-bottom: 1.5rem;
+  background: #181818;
+  border-radius: 10px;
+  padding: 1.1rem 1rem 1rem 1rem;
+  box-shadow: 0 1px 6px rgba(29, 185, 84, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  max-width: 700px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.add-comment-form textarea {
+  background: #232526;
+  border: 1px solid #444;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.7rem;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 48px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-comment-form button[type='submit'] {
+  width: 140px;
+  align-self: flex-end;
+  margin-top: 0.2rem;
+}
+
+@media (max-width: 600px) {
+  .playlist-comments-section {
+    padding: 1rem 0.3rem 1rem 0.3rem;
+  }
+  .comment-profile-img {
+    width: 34px;
+    height: 34px;
+  }
+}
