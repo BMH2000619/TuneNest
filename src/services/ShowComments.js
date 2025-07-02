@@ -43,7 +43,6 @@ export const deleteComment = async (commentId, token) => {
   try {
     const res = await Client.delete(
       `/comment/${commentId}`,
-      { comment },
       { headers: { Authorization: `Bearer ${token}` } }
     )
     return res.data
