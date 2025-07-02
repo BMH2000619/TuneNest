@@ -3,7 +3,9 @@ import { useParams, useNavigate, Link } from 'react-router-dom'
 import {
   getplaylistById,
   updatePlaylist,
-  deletePlaylist
+  deletePlaylist,
+  likePlaylist,
+  unlikePlaylist
 } from '../services/ShowPlaylists'
 import { getAllSongs } from '../services/ShowSongs'
 import AddComment from '../components/AddComment'
@@ -32,6 +34,7 @@ const PlaylistDetail = ({ user }) => {
   const [commentLoading, setCommentLoading] = useState(true)
   const [editingCommentId, setEditingCommentId] = useState(null)
   const [editText, setEditText] = useState('')
+  const [likeLoading, setLikeLoading] = useState(false)
 
   useEffect(() => {
     const fetchPlaylist = async () => {
@@ -172,6 +175,31 @@ const PlaylistDetail = ({ user }) => {
     }
   }
 
+  const hasLiked = user && playlist && playlist.likes?.includes(user._id)
+
+  const handleLike = async () => {
+    setLikeLoading(true)
+    try {
+      if (hasLiked) {
+        const updated = await unlikePlaylist(
+          playlist._id,
+          localStorage.getItem('token')
+        )
+        setPlaylist(updated)
+      } else {
+        const updated = await likePlaylist(
+          playlist._id,
+          localStorage.getItem('token')
+        )
+        setPlaylist(updated)
+      }
+    } catch (err) {
+      setError('Failed to update like.')
+    } finally {
+      setLikeLoading(false)
+    }
+  }
+
   if (loading) {
     return <div>Loading...</div>
   }
@@ -238,6 +266,24 @@ const PlaylistDetail = ({ user }) => {
               <button onClick={handleDelete}>Delete</button>
             </div>
           )}
+          {!isGuest && !isOwner && (
+            <button
+              onClick={handleLike}
+              disabled={likeLoading}
+              style={{
+                margin: '1rem 0',
+                background: hasLiked ? '#1db954' : '#232526',
+                color: hasLiked ? '#181818' : '#1db954',
+                border: '1px solid #1db954',
+                borderRadius: 6,
+                padding: '0.5em 1.2em',
+                fontWeight: 600,
+                cursor: 'pointer'
+              }}
+            >
+              {hasLiked ? 'Unlike' : 'Like'} ({playlist.likes?.length || 0})
+            </button>
+          )}
         </>
       )}
 
@@ -245,19 +291,18 @@ const PlaylistDetail = ({ user }) => {
         <h3>Songs</h3>
         {playlist.songs && playlist.songs.length > 0 ? (
           <ul className="song-list">
-            {playlist.songs.map((song) => (
-              <li key={song._id} className="song-list-item">
-                <Link
-                  to={`/songs/${song._id}`}
-                  style={{
-                    color: 'inherit',
-                    textDecoration: 'none',
-                    width: '100%',
-                    display: 'block'
-                  }}
-                >
-                  <strong>{song.title}</strong> by {song.artist}
-                </Link>
+            {playlist.songs.map((song, idx) => (
+              <li
+                key={song._id || song.id || song || idx}
+                className="song-list-item"
+              >
+                {typeof song === 'object' ? (
+                  <Link to={`/songs/${song._id}`}>
+                    <strong>{song.title}</strong> by {song.artist}
+                  </Link>
+                ) : (
+                  <span>Unknown song</span>
+                )}
               </li>
             ))}
           </ul>

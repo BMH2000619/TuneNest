@@ -49,3 +49,31 @@ export const deletePlaylist = async (id) => {
     throw error
   }
 }
+
+// Like a playlist
+export const likePlaylist = async (playlistId, token) => {
+  try {
+    const res = await Client.post(
+      `/playlists/${playlistId}/like`,
+      {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+// Unlike a playlist
+export const unlikePlaylist = async (playlistId, token) => {
+  try {
+    const res = await Client.post(
+      `/playlists/${playlistId}/unlike`,
+      {},
+      { headers: { Authorization: `Bearer ${token}` } }
+    )
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}

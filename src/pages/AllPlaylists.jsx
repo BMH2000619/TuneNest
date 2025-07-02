@@ -43,7 +43,7 @@ const AllPlaylists = ({ user }) => {
   }
 
   return (
-    <div style={{ maxWidth: 800, margin: '2rem auto' }}>
+    <div className="all-playlists-container">
       <h2>All Public Playlists</h2>
       <AddPlaylist onAdd={handleAdd} user={user} />
       {playlists.length === 0 ? (
@@ -77,6 +77,16 @@ const AllPlaylists = ({ user }) => {
                   </span>
                   <span className="playlist-by">
                     By: {playlist.createdBy?.username || 'Unknown'}
+                  </span>
+                  <span
+                    className="playlist-likes"
+                    style={{
+                      marginLeft: 12,
+                      color: '#1db954',
+                      fontWeight: 500
+                    }}
+                  >
+                    ❤️ {playlist.likes?.length || 0}
                   </span>
                 </div>
               </div>
