@@ -31,18 +31,11 @@ const AddSong = ({ onSongAdded }) => {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{
-        marginBottom: '1rem',
-        border: '1px solid #ccc',
-        padding: '1rem',
-        borderRadius: '6px'
-      }}
-    >
+    <form className="add-song-form" onSubmit={handleSubmit}>
       <h3>Add a Song</h3>
-      <div>
+      <div className="input-wrapper">
         <input
+          className="add-song-input"
           name="title"
           placeholder="Title"
           value={form.title}
@@ -50,8 +43,9 @@ const AddSong = ({ onSongAdded }) => {
           required
         />
       </div>
-      <div>
+      <div className="input-wrapper">
         <input
+          className="add-song-input"
           name="artist"
           placeholder="Artist"
           value={form.artist}
@@ -59,26 +53,28 @@ const AddSong = ({ onSongAdded }) => {
           required
         />
       </div>
-      <div>
+      <div className="input-wrapper">
         <input
+          className="add-song-input"
           name="url"
           placeholder="Song URL"
           value={form.url}
           onChange={handleChange}
           required
         />
-        <div>
-          <input
-            name="duration"
-            placeholder="Duration (Optional)"
-            value={form.duration}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Add Song</button>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-        {success && <div style={{ color: 'green' }}>{success}</div>}
       </div>
+      <div className="input-wrapper">
+        <input
+          className="add-song-input"
+          name="duration"
+          placeholder="Duration (Optional)"
+          value={form.duration}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit">Add Song</button>
+      {error && <div style={{ color: 'red' }}>{error}</div>}
+      {success && <div style={{ color: 'green' }}>{success}</div>}
     </form>
   )
 }

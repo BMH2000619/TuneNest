@@ -211,7 +211,11 @@ a:hover {
 
 .songs-page {
   max-width: 600px;
-  margin: 0 auto;
+  margin: 2.5rem auto 2rem auto;
+  padding: 2rem 1.5rem 2rem 1.5rem;
+  background: rgba(34, 34, 34, 0.98);
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(29, 185, 84, 0.08);
 }
 
 .songs-list {
@@ -716,40 +720,70 @@ a:hover {
 }
 
 .add-song-form {
-  margin-top: 2rem;
   background: #181818;
   border-radius: 12px;
-  padding: 1.5rem 1.2rem;
-  box-shadow: 0 2px 12px rgba(29, 185, 84, 0.04);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  box-shadow: 0 2px 12px rgba(29, 185, 84, 0.07);
+  border: 1.5px solid #1db954;
+  margin-bottom: 2.5rem;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.1rem;
 }
 
-.add-song-form h4 {
+.add-song-form h3 {
   color: #1db954;
-  margin-bottom: 1rem;
-}
-
-.add-song-form select {
-  background: #232526;
-  border: 1px solid #444;
-  color: #fff;
-  border-radius: 8px;
-  padding: 0.7rem;
-  font-size: 1rem;
-  width: 100%;
   margin-bottom: 0.7rem;
+  text-align: center;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
 }
 
-.add-song-form select:focus {
-  border: 1.5px solid #1db954;
+.add-song-input {
+  padding: 0.7rem 1rem;
+  border: 1.5px solid #444;
+  border-radius: 8px;
+  background: #232526;
+  color: #fff;
+  font-size: 1.05rem;
   outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  margin-bottom: 0.2rem;
+}
+
+.add-song-input:focus {
+  border: 1.5px solid #1db954;
+  box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.13);
 }
 
 .add-song-form button[type='submit'] {
-  width: 100%;
   margin-top: 0.5rem;
+  padding: 0.7rem 0;
+  background: linear-gradient(90deg, #1db954 60%, #1ed760 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(29, 185, 84, 0.08);
+  letter-spacing: 0.02em;
+}
+
+.add-song-form button[type='submit']:hover:not(:disabled) {
+  background: linear-gradient(90deg, #17a74a 60%, #1db954 100%);
+  box-shadow: 0 4px 16px rgba(29, 185, 84, 0.18);
+}
+
+.add-song-form .input-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 /* --- Profile Page Styles --- */
